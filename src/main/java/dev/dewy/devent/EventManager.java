@@ -19,6 +19,8 @@ public class EventManager
     private final Map<Class<? extends Event>, Collection<EventHandler>> eventBindings;
     private final Set<Listener> listenersRegistry;
 
+    private static final EventHandler[] NO_HANDLERS = {};
+
     public EventManager()
     {
         eventBindings = new HashMap<>();
@@ -30,30 +32,22 @@ public class EventManager
         this.debugMode = debugMode;
     }
 
-    public Map<Class<? extends Event>, Collection<EventHandler>> getEventBindings()
-    {
-        return new HashMap<>(eventBindings);
-    }
-
-    public Set<Listener> getListenersRegistry()
-    {
-        return new HashSet<>(listenersRegistry);
-    }
-
     public void clear()
     {
         eventBindings.clear();
         listenersRegistry.clear();
     }
 
-    public List<EventHandler> getListenersFor(Class<? extends Event> cls)
+    public EventHandler[] getListenersFor(Class<? extends Event> cls)
     {
-        if (!eventBindings.containsKey(cls))
+        Collection<EventHandler> handlers = eventBindings.get(cls);
+
+        if (handlers == null || handlers.isEmpty())
         {
-            return new ArrayList<>();
+            return NO_HANDLERS;
         }
 
-        return new ArrayList<>(eventBindings.get(cls));
+        return handlers.toArray(new EventHandler[handlers.size()]);
     }
 
     public <T extends Event> T execute(T event, int type)

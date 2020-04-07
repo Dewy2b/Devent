@@ -35,7 +35,13 @@ public class EventHandler implements Comparable<EventHandler>
         return annotation.priority();
     }
 
-    public void executeEvent(Event event)
+    /**
+     * Calls all methods handling a provided {@link Event}.
+     *
+     * @param event The event to "execute".
+     * @throws IllegalStateException if it's not possible to invoke the event on a {@link Listener}.
+     */
+    public void executeEvent(Event event) throws IllegalStateException
     {
         try
         {
@@ -45,6 +51,8 @@ public class EventHandler implements Comparable<EventHandler>
         {
             System.err.println("Oes noes! There was an exception when performing EventHandler " + this.listener + " for event " + event.toString() + ". How annoying!");
             e.printStackTrace();
+
+            throw new IllegalStateException("Unable to call the method: " + method, e);
         }
     }
 
