@@ -25,11 +25,6 @@ public class EventHandler implements Comparable<EventHandler>
         return listener;
     }
 
-    public Method getMethod()
-    {
-        return method;
-    }
-
     public EventMethod getAnnotation()
     {
         return annotation;

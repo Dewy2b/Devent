@@ -14,5 +14,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EventMethod
 {
+    /**
+     * Set the priority of your EventMethod's execution.
+     *
+     * A good rough guide is something like:
+     *
+     * LOW Priority - 25
+     * MEDIUM Priority - 50
+     * HIGH Priority - 75
+     * VERY HIGH Priority - 100
+     */
     int priority() default 50;
 }
