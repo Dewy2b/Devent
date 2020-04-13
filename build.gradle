@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'dev.dewy.2b'
+group 'dev.dewy'
 version '1.0.1'
 
 sourceCompatibility = targetCompatibility = 1.8
