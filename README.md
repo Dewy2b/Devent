@@ -1,7 +1,4 @@
 <h1 align="center">
-  <br>
-  <a href="https://github.com/Dewy2B/Devent"><img src="https://i.imgur.com/bs04VqR.png" alt="Devent - Dewy's Event System"></a>
-  <br>
   Devent
   <br>
 </h1>
