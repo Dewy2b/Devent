@@ -1,4 +1,7 @@
 <h1 align="center">
+  <br>
+  <a href="https://github.com/Dewy2B/Devent"><img height="128" src="https://i.imgur.com/bs04VqR.png" alt="Devent - Dewy's Event System"></a>
+  <br>
   Devent
   <br>
 </h1>
@@ -40,7 +43,7 @@ dependencies {
     implementation "dev.dewy:devent:LATEST_RELEASE"
 }
 ```
-
+  
 **Maven**
 
 ```xml
